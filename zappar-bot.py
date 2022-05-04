@@ -40,7 +40,6 @@ def sendViewsWarning(number):
     sender_email = os.environ["sender-email"]
     receiver_email = [os.environ["receiver_email-1"]]
     password = os.environ["password"]
-    print(sender_email)
 
     msg = EmailMessage()
     msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se alcanza cierta cantidad de visualizaciones totales.\nSe han alcanzado las {} visualizaciones totales.'.format(number))
