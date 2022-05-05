@@ -38,7 +38,7 @@ def sendViewsWarning(number):
     port = 465  # For SSL
     smtp_server = "smtp.gmail.com"
     sender_email = os.environ["sender-email"]
-    receiver_email = [os.environ["receiver_email-1"]]
+    receiver_email = [os.environ["receiver_email-1"],os.environ["receiver_email-2"],os.environ["receiver_email-3"],os.environ["receiver_email-4"]]
     password = os.environ["password"]
 
     msg = EmailMessage()
