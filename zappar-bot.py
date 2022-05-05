@@ -52,7 +52,7 @@ def sendViewsWarning(number):
     server.send_message(msg)
     server.quit()
 
-def sendTestMail(number):
+def sendTestMail():
     port = 465  # For SSL
     smtp_server = "smtp.gmail.com"
     sender_email = os.environ["sender-email"]
@@ -69,6 +69,8 @@ def sendTestMail(number):
     server.login(sender_email, password)
     server.send_message(msg)
     server.quit()
+
+sendTestMail()
 
 views = getTotalView()
 while thresholds[current_threshold] <= views:
