@@ -10,8 +10,7 @@ from email.message import EmailMessage
 
 import random
 
-#thresholds = [1000,2000,2500,3500,4500,5500,6500,7500,8500,9500,10500]
-thresholds = [150,160,170,180,190,200]
+thresholds = [500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500,6000,6500,7000,7500,8000,8500,9000,9500,10000,10500]
 current_threshold = 0
 
 def getTotalView():
@@ -70,11 +69,11 @@ def sendTestMail():
     server.send_message(msg)
     server.quit()
 
-sendTestMail()
-
 views = getTotalView()
 while thresholds[current_threshold] <= views:
     current_threshold += 1
+
+sendTestMail()
 
 while 1:
     views = getTotalView()
