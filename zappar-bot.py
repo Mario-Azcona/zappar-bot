@@ -42,8 +42,26 @@ def sendViewsWarning(number):
     password = os.environ["password"]
 
     msg = EmailMessage()
-    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se alcanza cierta cantidad de visualizaciones totales en la expo de realidad aumentada de Amanece en Animayo.\nEn los últimos minutos se ha superado el umbral de {} visualizaciones totales.'.format(number))
+    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se supera cierto cantidad de visualizaciones totales en la expo de realidad aumentada de Amanece en Animayo.\nEn los últimos minutos se ha superado el umbral de {} visualizaciones totales.'.format(number))
     msg['Subject'] = 'Realidad aumentada Animayo: Aviso de {} visualizaciones'.format(number)
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+
+    server = smtplib.SMTP_SSL(smtp_server, port)
+    server.login(sender_email, password)
+    server.send_message(msg)
+    server.quit()
+
+def sendTestMail(number):
+    port = 465  # For SSL
+    smtp_server = "smtp.gmail.com"
+    sender_email = os.environ["sender-email"]
+    receiver_email = [os.environ["receiver_email-1"]]
+    password = os.environ["password"]
+
+    msg = EmailMessage()
+    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se inicia el bot de la expo de realidad aumentada de Amanece en Animayo.'.format(number))
+    msg['Subject'] = 'Realidad aumentada Animayo: Mail de prueba'
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
