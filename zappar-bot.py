@@ -42,7 +42,7 @@ def sendViewsWarning(number):
     password = os.environ["password"]
 
     msg = EmailMessage()
-    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se alcanza cierta cantidad de visualizaciones totales.\nSe han alcanzado las {} visualizaciones totales.'.format(number))
+    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se alcanza cierta cantidad de visualizaciones totales en la expo de realidad aumentada de Amanece en Animayo.\nEn los últimos minutos se ha superado el umbral de {} visualizaciones totales.'.format(number))
     msg['Subject'] = 'Realidad aumentada Animayo: Aviso de {} visualizaciones'.format(number)
     msg['From'] = sender_email
     msg['To'] = receiver_email
@@ -51,6 +51,10 @@ def sendViewsWarning(number):
     server.login(sender_email, password)
     server.send_message(msg)
     server.quit()
+
+views = getTotalView()
+while thresholds[current_threshold] <= views:
+    current_threshold += 1
 
 while 1:
     views = getTotalView()
