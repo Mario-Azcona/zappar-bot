@@ -60,7 +60,7 @@ def sendTestMail():
     password = os.environ["password"]
 
     msg = EmailMessage()
-    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se inicia el bot de la expo de realidad aumentada de Amanece en Animayo.'.format(number))
+    msg.set_content('Este mensaje ha sido programado para ser lanzado cuando se inicia el bot de la expo de realidad aumentada de Amanece en Animayo.')
     msg['Subject'] = 'Realidad aumentada Animayo: Mail de prueba'
     msg['From'] = sender_email
     msg['To'] = receiver_email
